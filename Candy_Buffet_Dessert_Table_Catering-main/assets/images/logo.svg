@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 479" width="1536" height="479">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C158" />
+      <stop offset="50%" stop-color="#C5A059" />
+      <stop offset="100%" stop-color="#8E6A28" />
+    </linearGradient>
+    <linearGradient id="plumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E91E63" />
+      <stop offset="40%" stop-color="#C2185B" />
+      <stop offset="100%" stop-color="#880E4F" />
+    </linearGradient>
+    <linearGradient id="cakeCream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FFF0F5" />
+    </linearGradient>
+    <linearGradient id="glazeDrip" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F48FB1" />
+      <stop offset="100%" stop-color="#C2185B" />
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#C2185B" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <!-- Left Medallion / Cake Badge -->
+  <g transform="translate(40, 20)">
+    <!-- Outer Ring -->
+    <circle cx="200" cy="220" r="195" fill="#FFF9FA" stroke="url(#plumGrad)" stroke-width="5" />
+    <circle cx="200" cy="220" r="185" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="8 6" />
+
+    <!-- Pedestal Base -->
+    <path d="M 150 395 C 150 375, 185 365, 185 325 L 215 325 C 215 365, 250 375, 250 395 Z" fill="url(#goldGrad)" filter="url(#softGlow)" />
+    <!-- Pedestal Plate -->
+    <ellipse cx="200" cy="325" rx="145" ry="16" fill="url(#goldGrad)" />
+    <ellipse cx="200" cy="322" rx="140" ry="13" fill="#F4DE9C" opacity="0.8" />
+
+    <!-- Cake Bottom Tier -->
+    <path d="M 90 260 L 90 315 C 90 335, 310 335, 310 315 L 310 260 Z" fill="url(#cakeCream)" stroke="#E8BCC8" stroke-width="1.5" />
+    <!-- Cake Bottom Tier Swag / Scallops -->
+    <path d="M 90 295 Q 115 315 145 295 Q 172 315 200 295 Q 228 315 255 295 Q 282 315 310 295" fill="none" stroke="#C2185B" stroke-width="2.5" />
+    <!-- Heart dots on bottom tier -->
+    <circle cx="117" cy="298" r="4.5" fill="#C2185B" />
+    <circle cx="172" cy="298" r="4.5" fill="#C2185B" />
+    <circle cx="228" cy="298" r="4.5" fill="#C2185B" />
+    <circle cx="283" cy="298" r="4.5" fill="#C2185B" />
+
+    <!-- Bottom Tier Top Ellipse -->
+    <ellipse cx="200" cy="260" rx="110" ry="16" fill="#FFF0F5" stroke="#E8BCC8" stroke-width="1.5" />
+
+    <!-- Cake Top Tier -->
+    <path d="M 125 185 L 125 245 C 125 260, 275 260, 275 245 L 275 185 Z" fill="url(#cakeCream)" stroke="#E8BCC8" stroke-width="1.5" />
+    <ellipse cx="200" cy="185" rx="75" ry="12" fill="#FFF0F5" stroke="#E8BCC8" stroke-width="1.5" />
+
+    <!-- Top Tier Drip Glaze -->
+    <path d="M 125 185 C 125 198, 138 215, 142 205 C 147 195, 153 228, 160 220 C 168 210, 175 200, 185 212 C 193 222, 203 226, 212 214 C 220 202, 230 222, 238 210 C 245 200, 255 218, 262 208 C 268 200, 275 192, 275 185 C 275 175, 125 175, 125 185 Z" fill="url(#glazeDrip)" />
+
+    <!-- Frosting Swirl on Top -->
+    <path d="M 170 180 C 160 160, 180 135, 200 130 C 220 135, 240 160, 230 180 C 220 190, 180 190, 170 180 Z" fill="#FFF5F8" stroke="#E8BCC8" stroke-width="1" />
+    <path d="M 180 165 C 175 150, 195 135, 200 130 C 210 140, 215 155, 205 168 Z" fill="#FCE4EC" />
+
+    <!-- Cake Topper Heart -->
+    <path d="M 200 120 C 185 95, 155 105, 170 130 Q 200 155 200 165 Q 200 155 230 130 C 245 105, 215 95, 200 120 Z" fill="url(#plumGrad)" filter="url(#softGlow)" />
+
+    <!-- Floating Mini Hearts -->
+    <path d="M 265 330 C 255 315, 235 320, 245 335 Q 265 350 265 355 Q 265 350 285 335 C 295 320, 275 315, 265 330 Z" fill="url(#plumGrad)" transform="scale(0.6) translate(160, 210)" />
+  </g>
+
+  <!-- Typography Brand Name: VelvetBite -->
+  <g id="brand-text">
+    <text x="510" y="275" font-family="'Playfair Display', 'Didot', 'Cinzel', 'Georgia', serif" font-size="160" font-weight="700" fill="url(#plumGrad)" letter-spacing="-2">Velvet<tspan fill="url(#goldGrad)">Bite</tspan></text>
+    
+    <!-- Heart above the i in Bite -->
+    <path d="M 1255 175 C 1245 155, 1220 165, 1230 185 Q 1255 205 1255 212 Q 1255 205 1280 185 C 1290 165, 1265 155, 1255 175 Z" fill="url(#plumGrad)" />
+
+    <!-- Subtitle divider and text -->
+    <line x1="515" y1="330" x2="560" y2="330" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" />
+    <text x="580" y="337" font-family="'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif" font-size="28" font-weight="600" fill="#996515" letter-spacing="10">CANDY BUFFET &amp; DESSERT TABLE CATERING</text>
+    <line x1="1435" y1="330" x2="1480" y2="330" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+</svg>
+

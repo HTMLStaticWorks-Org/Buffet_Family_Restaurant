@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Themes | VelvetBite - Inspiration</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.svg" alt="VelvetBite Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="packages.html">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Book-US</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="login.html" class="btn-luxury">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="toggle-group">
+                            <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                                <i class="fas fa-moon"></i>
+                                <i class="fas fa-sun"></i>
+                            </button>
+                            <button id="rtl-toggle" class="rtl-toggle" title="Toggle RTL">
+                                <span>RTL</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-color: var(--soft-accent, var(--soft-orange)); margin-top: 0;">
+        <div class="container text-center py-5">
+            <h1 class="display-3">Enchanting Themes</h1>
+            <p class="lead">From pastel dreamlands to gold-glam celebrations.</p>
+        </div>
+    </section>
+
+    <!-- Themes Grid Section -->
+    <section class="themes-grid py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Theme 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="luxury-card h-100">
+                        <div class="luxury-card-img">
+                            <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=800&auto=format&fit=crop" class="card-img-top" alt="Vintage Pastel">
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h4">Vintage Pastel</h3>
+                            <p class="text-muted">Soft oranges, cream whites, and lace details. Perfect for baby showers and romantic weddings.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Theme 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="luxury-card h-100">
+                        <div class="luxury-card-img">
+                            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=800&auto=format&fit=crop" class="card-img-top" alt="Golden Glamour">
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h4">Golden Glamour</h3>
+                            <p class="text-muted">Gold accents, crystal jars, and sophisticated treats. Ideal for formal events and gala celebrations.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Theme 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="luxury-card h-100">
+                        <div class="luxury-card-img">
+                            <img src="https://images.unsplash.com/photo-1582293041079-7814c2f12063?q=80&w=800&auto=format&fit=crop" class="card-img-top" alt="Fairytale Forest">
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h4">Fairytale Forest</h3>
+                            <p class="text-muted">Mossy textures, wooden elements, and whimsical sweets. Great for kids' birthdays and themed parties.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Theme 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="luxury-card h-100">
+                        <div class="luxury-card-img">
+                            <img src="https://images.unsplash.com/photo-1534958156105-2d4e6df5dfcb?q=80&w=800&auto=format&fit=crop" class="card-img-top" alt="Modern Chic">
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h4">Modern Chic</h3>
+                            <p class="text-muted">Clean lines, geometric shapes, and monochromatic sweets with a pop of color.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Theme 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="luxury-card h-100">
+                        <div class="luxury-card-img">
+                            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800&auto=format&fit=crop" class="card-img-top" alt="Tropical Paradise">
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h4">Tropical Paradise</h3>
+                            <p class="text-muted">Vibrant colors, exotic fruit flavors, and lush greenery decor.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Theme 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="luxury-card h-100">
+                        <div class="luxury-card-img">
+                            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=800&auto=format&fit=crop" class="card-img-top" alt="Boho Dreams">
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h4">Boho Dreams</h3>
+                            <p class="text-muted">Macrame details, earthy tones, and organic-style dessert arrangements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Styling with Themes -->
+    <section class="service-styling py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1582293041079-7814c2f12063?q=80&w=800&auto=format&fit=crop" alt="Theme Styling" class="img-fluid rounded-4 shadow-lg">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 mb-4">Themes for Every Service</h2>
+                    <p class="lead">All our themes can be applied to any service we offer, from a simple candy buffet to a grand wedding display.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="fas fa-check text-primary-orange me-2"></i> Custom-matched candy varieties</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary-orange me-2"></i> Color-coordinated artisan treats</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary-orange me-2"></i> Themed labels, props, and backdrops</li>
+                    </ul>
+                    <a href="services.html" class="btn-luxury">Explore Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Theming Section -->
+    <section class="package-theming py-5">
+        <div class="container text-center">
+            <h2 class="display-5 mb-4">Your Theme, Your Package</h2>
+            <p class="lead mb-5">Every one of our signature packages includes professional theme styling at no extra cost.</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="luxury-card p-4 h-100">
+                        <h4 class="text-primary-orange">Intimate Themes</h4>
+                        <p class="small text-muted">Perfectly styled for small gatherings under "The Sweet Start" package.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="luxury-card p-4 h-100">
+                        <h4 class="text-primary-orange">Popular Themes</h4>
+                        <p class="small text-muted">Breathtaking setups for mid-sized events with "The Sweeter Soirée".</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="luxury-card p-4 h-100">
+                        <h4 class="text-primary-orange">Grand Themes</h4>
+                        <p class="small text-muted">The ultimate thematic experience with "The Sweetest Luxury" package.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <a href="packages.html" class="btn-luxury">View Package Pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compact Footer -->
+    <footer class="index-footer-dark">
+        <div class="container">
+            <div class="row g-4 justify-content-between">
+                <div class="col-lg-3">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="VelvetBite Logo">
+                    </a>
+                    <p>Luxury Candy Buffets & Dessert Tables for Every Celebration.</p>
+                    <div class="social-links d-flex gap-2 mt-3">
+                        <a href="#" class="text-primary-orange"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-primary-orange"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-primary-orange"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Events</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="themes.html">Themes</a></li>
+                        <li><a href="contact.html">Book-US</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Contact</h5>
+                    <p><i class="fas fa-envelope me-2 text-primary-orange"></i> hello@velvetbite.com</p>
+                    <p><i class="fas fa-phone me-2 text-primary-orange"></i> +1 234 567 890</p>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p class="mb-0 small text-muted">&copy; 2026 VelvetBite. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

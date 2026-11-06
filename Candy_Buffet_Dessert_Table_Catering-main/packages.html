@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Packages | VelvetBite - Pricing & Details</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .package-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-soft);
+            background-color: var(--card-bg);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .package-header {
+            background-color: var(--soft-accent, var(--soft-orange));
+            padding: 50px 20px 40px; /* Increased top padding to avoid badge overlap */
+            text-align: center;
+        }
+
+        .package-price {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 0;
+        }
+
+        .package-body {
+            padding: 40px 30px;
+            background-color: var(--card-bg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .package-body .btn-luxury,
+        .package-body .btn-luxury-outline {
+            margin-top: auto;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: -40px;
+            background: linear-gradient(135deg, #C2185B 0%, #880E4F 100%);
+            color: white;
+            width: 150px;
+            text-align: center;
+            padding: 5px 0;
+            transform: rotate(45deg);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 15;
+        }
+    </style>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.svg" alt="VelvetBite Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="packages.html">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Book-US</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="login.html" class="btn-luxury">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="toggle-group">
+                            <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                                <i class="fas fa-moon"></i>
+                                <i class="fas fa-sun"></i>
+                            </button>
+                            <button id="rtl-toggle" class="rtl-toggle" title="Toggle RTL">
+                                <span>RTL</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-color: var(--primary-color); margin-top: 0;">
+        <div class="container text-center py-5 text-white">
+            <h1 class="display-3 text-white">Party Packages</h1>
+            <p class="lead">Curated collections to fit every celebration size and budget.</p>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages-section py-5">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <!-- Package 1 -->
+                <div class="col-lg-4">
+                    <div class="package-card h-100">
+                        <div class="package-header">
+                            <h3>The Sweet Start</h3>
+                            <p class="text-muted">Perfect for small gatherings</p>
+                            <p class="package-price">$499</p>
+                            <p class="small text-muted">Up to 30 Guests</p>
+                        </div>
+                        <div class="package-body">
+                            <ul class="list-unstyled mb-5">
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> 6 Varieties of
+                                    Premium Candy</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Rental of Luxury
+                                    Glassware</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Themed Linen &
+                                    Decor</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Custom Candy
+                                    Labels</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Delivery, Setup &
+                                    Cleanup</li>
+                                <li class="mb-3 text-muted"><del>Artisan Petite Desserts</del></li>
+                            </ul>
+                            <a href="contact.html" class="btn-luxury-outline w-100">Select Package</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="col-lg-4">
+                    <div class="package-card h-100 border border-primary-orange">
+                        <div class="popular-badge">Popular</div>
+                        <div class="package-header" style="background-color: var(--primary-color); color: white;">
+                            <h3 class="text-white">The Sweeter Soirée</h3>
+                            <p class="text-white-50">Our most popular choice</p>
+                            <p class="package-price text-white">$899</p>
+                            <p class="small text-white-50">Up to 75 Guests</p>
+                        </div>
+                        <div class="package-body">
+                            <ul class="list-unstyled mb-5">
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> 10 Varieties of
+                                    Premium Candy</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> 3 Types of
+                                    Artisan Desserts</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Custom Themed
+                                    Backdrop</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Floral Table
+                                    Arrangements</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Menu Signage &
+                                    Decor</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Delivery, Setup &
+                                    Cleanup</li>
+                            </ul>
+                            <a href="contact.html" class="btn-luxury w-100">Select Package</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="col-lg-4">
+                    <div class="package-card h-100">
+                        <div class="package-header">
+                            <h3>The Sweetest Luxury</h3>
+                            <p class="text-muted">The ultimate dessert experience</p>
+                            <p class="package-price">$1,499</p>
+                            <p class="small text-muted">Up to 150 Guests</p>
+                        </div>
+                        <div class="package-body">
+                            <ul class="list-unstyled mb-5">
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> 15 Varieties of
+                                    Premium Candy</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> 6 Types of
+                                    Artisan Desserts</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Premium
+                                    Personalized Props</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Professional
+                                    Table Attendant</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Take-home Favor
+                                    Boxes</li>
+                                <li class="mb-3"><i class="fas fa-check text-primary-orange me-2"></i> Priority Delivery
+                                    & Setup</li>
+                            </ul>
+                            <a href="contact.html" class="btn-luxury-outline w-100">Select Package</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Removed Custom Quote (Moved to bottom) -->
+
+    <!-- Complementary Services -->
+    <section class="complementary-services py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5">Package Add-ons</h2>
+                <p class="lead">Enhance your package with these sweet extras.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="luxury-card p-4 text-center h-100">
+                        <i class="fas fa-camera fa-2x text-primary-orange mb-3"></i>
+                        <h5>Photo Booth</h5>
+                        <p class="small">Capture the fun with a themed backdrop and props.</p>
+                        <p class="text-primary-orange fw-bold">From $200</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="luxury-card p-4 text-center h-100">
+                        <i class="fas fa-utensils fa-2x text-primary-orange mb-3"></i>
+                        <h5>Personalized Sweets</h5>
+                        <p class="small">Custom cookies and treats with your name or logo.</p>
+                        <p class="text-primary-orange fw-bold">From $150</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="luxury-card p-4 text-center h-100">
+                        <i class="fas fa-wine-glass-alt fa-2x text-primary-orange mb-3"></i>
+                        <h5>Drink Station</h5>
+                        <p class="small">Mocktails or themed drinks to match your table.</p>
+                        <p class="text-primary-orange fw-bold">From $250</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="luxury-card p-4 text-center h-100">
+                        <i class="fas fa-clock fa-2x text-primary-orange mb-3"></i>
+                        <h5>Extended Rental</h5>
+                        <p class="small">Keep the table open for a longer celebrations.</p>
+                        <p class="text-primary-orange fw-bold">From $100/hr</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Examples Gallery -->
+    <section class="package-gallery py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5">Real Package Examples</h2>
+                <p class="lead mb-4">See what our different package tiers look like in reality.</p>
+                <a href="gallery.html" class="btn-luxury-outline">Full Gallery</a>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="luxury-card overflow-hidden h-100 d-flex flex-column">
+                        <div class="luxury-card-img flex-shrink-0" style="height: 250px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1514849302-984523450cf4?q=80&w=800&auto=format&fit=crop" alt="Sweet Start Example" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                        </div>
+                        <div class="p-4 text-center bg-white flex-grow-1 d-flex flex-column justify-content-center">
+                            <h5 class="mb-3">The Sweet Start</h5>
+                            <p class="text-muted small mb-0">An intimate, beautifully styled candy display featuring elegant glass apothecaries filled with matching color-themed sweets. Perfect for birthdays and small celebrations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="luxury-card overflow-hidden border-primary-orange h-100 d-flex flex-column">
+                        <div class="luxury-card-img flex-shrink-0" style="height: 250px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?q=80&w=800&auto=format&fit=crop" alt="Sweeter Soiree Example" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                        </div>
+                        <div class="p-4 text-center bg-white flex-grow-1 d-flex flex-column justify-content-center">
+                            <h5 class="mb-3">The Sweeter Soirée</h5>
+                            <p class="text-muted small mb-0">Our most requested setup featuring a stunning custom backdrop, premium floral arrangements, and an exquisite mix of artisan desserts alongside gourmet candies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="luxury-card overflow-hidden h-100 d-flex flex-column">
+                        <div class="luxury-card-img flex-shrink-0" style="height: 250px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=800&auto=format&fit=crop" alt="Sweetest Luxury Example"
+                                class="img-fluid w-100 h-100" style="object-fit: cover;">
+                        </div>
+                        <div class="p-4 text-center bg-white flex-grow-1 d-flex flex-column justify-content-center">
+                            <h5 class="mb-3">The Sweetest Luxury</h5>
+                            <p class="text-muted small mb-0">A show-stopping 360-degree grand dessert station offering a massive array of luxury treats, personalized props, and dedicated attendant service for large-scale events.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Package Examples -->
+                <div class="col-md-4">
+                    <div class="luxury-card overflow-hidden h-100 d-flex flex-column">
+                        <div class="luxury-card-img flex-shrink-0" style="height: 250px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?q=80&w=800&auto=format&fit=crop" alt="Corporate Candy Station Example" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                        </div>
+                        <div class="p-4 text-center bg-white flex-grow-1 d-flex flex-column justify-content-center">
+                            <h5 class="mb-3">Corporate Candy Station</h5>
+                            <p class="text-muted small mb-0">Elevate your company event with branded colors, custom logos on treats, and an impressive selection of premium sweets designed to impress clients and employees.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="luxury-card overflow-hidden h-100 d-flex flex-column">
+                        <div class="luxury-card-img flex-shrink-0" style="height: 250px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?q=80&w=800&auto=format&fit=crop" alt="Rustic Charm Dessert Table Example" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                        </div>
+                        <div class="p-4 text-center bg-white flex-grow-1 d-flex flex-column justify-content-center">
+                            <h5 class="mb-3">Rustic Charm Dessert Table</h5>
+                            <p class="text-muted small mb-0">A beautiful blend of wood accents, floral touches, and homestyle desserts. Ideal for barn weddings, bridal showers, or cozy outdoor gatherings.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="luxury-card overflow-hidden h-100 d-flex flex-column">
+                        <div class="luxury-card-img flex-shrink-0" style="height: 250px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=800&auto=format&fit=crop" alt="Magical Kids Party Example"
+                                class="img-fluid w-100 h-100" style="object-fit: cover;">
+                        </div>
+                        <div class="p-4 text-center bg-white flex-grow-1 d-flex flex-column justify-content-center">
+                            <h5 class="mb-3">Magical Kids Party</h5>
+                            <p class="text-muted small mb-0">A vibrant and playful setup featuring fun props, colorful candies, cake pops, and interactive dessert elements that will delight younger guests.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Quote -->
+    <section class="py-5 bg-light">
+        <div class="container text-center py-5">
+            <h2 class="mb-4">Need a Custom Package?</h2>
+            <p class="lead mb-5">We can create a bespoke experience for events of any size, from 10 to 1,000+ guests.
+            </p>
+            <a href="contact.html" class="btn-luxury">Request a Custom Quote</a>
+        </div>
+    </section>
+
+    <!-- Compact Footer -->
+    <footer class="index-footer-dark">
+        <div class="container">
+            <div class="row g-4 justify-content-between">
+                <div class="col-lg-3">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="VelvetBite Logo">
+                    </a>
+                    <p>Luxury Candy Buffets & Dessert Tables for Every Celebration.</p>
+                    <div class="social-links d-flex gap-2 mt-3">
+                        <a href="#" class="text-primary-orange"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-primary-orange"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-primary-orange"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Events</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="themes.html">Themes</a></li>
+                        <li><a href="contact.html">Book-US</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Contact</h5>
+                    <p><i class="fas fa-envelope me-2 text-primary-orange"></i> hello@velvetbite.com</p>
+                    <p><i class="fas fa-phone me-2 text-primary-orange"></i> +1 234 567 890</p>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p class="mb-0 small text-muted">&copy; 2026 VelvetBite. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

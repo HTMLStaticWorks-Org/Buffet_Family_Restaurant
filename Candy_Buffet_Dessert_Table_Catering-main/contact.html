@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-US | VelvetBite - Luxury Catering & Inquiries</title>
+    <meta name="description"
+        content="Book your luxury candy buffet or dessert table. Contact VelvetBite for inquiries and custom event styling.">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <style>
+        .booking-form-container {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            padding: 40px;
+            border: 1px solid rgba(255, 127, 80, 0.2);
+        }
+
+        .info-card {
+            background-color: var(--soft-accent, var(--soft-orange));
+            border-radius: 20px;
+            padding: 30px;
+            height: 100%;
+        }
+
+        /* Map Section Styles */
+        #map {
+            height: 500px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            z-index: 1;
+        }
+
+        .map-section {
+            background-color: var(--bg-light);
+        }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            font-family: var(--font-subheading);
+        }
+
+        .leaflet-popup-content h6 {
+            margin-bottom: 5px;
+            color: var(--gold);
+        }
+
+        /* Enhanced Marker Styles */
+        .custom-marker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .marker-pin {
+            width: 30px;
+            height: 30px;
+            border-radius: 50% 50% 50% 0;
+            background: var(--gold);
+            position: absolute;
+            transform: rotate(-45deg);
+            left: 50%;
+            top: 50%;
+            margin: -15px 0 0 -15px;
+            border: 2px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .marker-pin::after {
+            content: '';
+            width: 14px;
+            height: 14px;
+            margin: 8px 0 0 8px;
+            background: #fff;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .marker-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(2.5);
+                opacity: 0;
+            }
+        }
+    </style>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.svg" alt="VelvetBite Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="packages.html">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Book-US</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="login.html" class="btn-luxury">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="toggle-group">
+                            <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                                <i class="fas fa-moon"></i>
+                                <i class="fas fa-sun"></i>
+                            </button>
+                            <button id="rtl-toggle" class="rtl-toggle" title="Toggle RTL">
+                                <span>RTL</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-color: var(--primary-color); margin-top: 0;">
+        <div class="container text-center py-5">
+            <h1 class="display-3 text-white">Let's Create Magic</h1>
+            <p class="lead text-white">Request a quote or send us a message for your celebration.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="booking-contact-section py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Booking & Contact Form -->
+                <div class="col-lg-8">
+                    <div class="booking-form-container">
+                        <h2 class="mb-4 text-center">Event Inquiry Form</h2>
+                        <form id="combinedForm" class="needs-validation" novalidate>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" placeholder="hello@example.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="+1 234 567 890" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Event Date</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Event Type</label>
+                                    <select class="form-select" required>
+                                        <option value="">Select Event Type</option>
+                                        <option value="wedding">Wedding</option>
+                                        <option value="birthday">Birthday Party</option>
+                                        <option value="baby-shower">Baby Shower</option>
+                                        <option value="corporate">Corporate Event</option>
+                                        <option value="other">Other Celebration</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Guest Count (approx.)</label>
+                                    <input type="number" class="form-control" placeholder="e.g. 50" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label">Venue Location</label>
+                                    <input type="text" class="form-control" placeholder="City or Venue Name" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label">Your Message / Vision</label>
+                                    <textarea class="form-control" rows="4"
+                                        placeholder="Tell us more about your event or specific questions you have."></textarea>
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <button type="submit" class="btn-luxury w-100 py-3 fs-5">Send Inquiry</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Info Sidebar -->
+                <div class="col-lg-4">
+                    <div class="info-card">
+                        <h3 class="mb-4 text-center">Get In Touch</h3>
+                        <p class="mb-5 text-muted text-center">Prefer to chat directly? Reach out to us through any of
+                            these channels.</p>
+
+                        <div class="d-flex mb-4">
+                            <div class="me-3 fs-4 text-primary-orange">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email Us</h5>
+                                <p class="text-muted">hello@velvetbite.com</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <div class="me-3 fs-4 text-primary-orange">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5>Call Us</h5>
+                                <p class="text-muted">+1 234 567 890</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <div class="me-3 fs-4 text-primary-orange">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h5>WhatsApp</h5>
+                                <p class="text-muted">Chat with our stylist instantly</p>
+                                <a href="https://wa.me/1234567890"
+                                    class="btn btn-sm btn-success rounded-pill px-3">Start Chat</a>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4 class="mb-3 text-center">Our Studio</h4>
+                        <p class="text-muted small text-center"><i
+                                class="fas fa-map-marker-alt me-2 text-primary-orange"></i> 123 Sweet Street, Candy
+                            City, ST 12345</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section py-5">
+        <div class="container">
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 mb-3">Find Our Studios</h2>
+                    <p class="text-muted">We have multiple locations across the city to serve you better. Visit us at
+                        our nearest boutique studio.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Packages Preview -->
+    <section class="packages-preview py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5">Choose Your Experience</h2>
+                <p class="lead">Select a package that fits your event scale.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="luxury-card p-4 text-center h-100">
+                        <h4 class="text-primary-orange">The Sweet Start</h4>
+                        <p class="price fw-bold">$499</p>
+                        <p class="small text-muted">Up to 30 Guests</p>
+                        <a href="packages.html" class="btn-luxury-outline btn-sm w-100">Package Info</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="luxury-card p-4 text-center h-100 border-primary-orange">
+                        <h4 class="text-primary-orange">The Sweeter Soirée</h4>
+                        <p class="price fw-bold">$899</p>
+                        <p class="small text-muted">Up to 75 Guests</p>
+                        <a href="packages.html" class="btn-luxury btn-sm w-100">Package Info</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="luxury-card p-4 text-center h-100">
+                        <h4 class="text-primary-orange">The Sweetest Luxury</h4>
+                        <p class="price fw-bold">$1,499</p>
+                        <p class="small text-muted">Up to 150 Guests</p>
+                        <a href="packages.html" class="btn-luxury-outline btn-sm w-100">Package Info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Highlights -->
+    <section class="gallery-highlights py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5">Dreaming of Your Event?</h2>
+                <p class="lead mb-4">Get inspired by our most successful celebrations.</p>
+                <a href="gallery.html" class="btn-luxury">View Gallery</a>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <img src="assets/images/gallery_extra_1.png" alt="Inspiration"
+                        class="img-fluid rounded-4 shadow-sm">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=800&auto=format&fit=crop"
+                        alt="Inspiration" class="img-fluid rounded-4 shadow-sm">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1582293041079-7814c2f12063?q=80&w=800&auto=format&fit=crop"
+                        alt="Inspiration" class="img-fluid rounded-4 shadow-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compact Footer -->
+    <footer class="index-footer-dark">
+        <div class="container">
+            <div class="row g-4 justify-content-between">
+                <div class="col-lg-3">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="VelvetBite Logo">
+                    </a>
+                    <p>Luxury Candy Buffets & Dessert Tables for Every Celebration.</p>
+                    <div class="social-links d-flex gap-2 mt-3">
+                        <a href="#" class="text-primary-orange"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-primary-orange"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-primary-orange"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Events</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="themes.html">Themes</a></li>
+                        <li><a href="contact.html">Book-US</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Contact</h5>
+                    <p><i class="fas fa-envelope me-2 text-primary-orange"></i> hello@velvetbite.com</p>
+                    <p><i class="fas fa-phone me-2 text-primary-orange"></i> +1 234 567 890</p>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p class="mb-0 small text-muted">&copy; 2026 VelvetBite. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Leaflet Map JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize the map
+            // Centered around New York coordinates as an example
+            const map = L.map('map').setView([40.730610, -73.935242], 12);
+
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Define locations
+            const locations = [
+                {
+                    name: "Main Boutique Studio",
+                    address: "123 Sweet Street, Candy City",
+                    coords: [40.712776, -74.005974],
+                    phone: "+1 234 567 890"
+                },
+                {
+                    name: "VelvetBite Downtown",
+                    address: "456 Dessert Ave, Midtown",
+                    coords: [40.758896, -73.985130],
+                    phone: "+1 234 567 891"
+                },
+                {
+                    name: "The Sugar Gallery",
+                    address: "789 Pastry Lane, Brooklyn",
+                    coords: [40.678177, -73.944158],
+                    phone: "+1 234 567 892"
+                }
+            ];
+
+            // Enhanced Custom Gold Icon
+            const goldIcon = L.divIcon({
+                className: 'custom-marker',
+                html: `
+                    <div class='marker-pulse'></div>
+                    <div class='marker-pin'></div>
+                `,
+                iconSize: [30, 42],
+                iconAnchor: [15, 42],
+                popupAnchor: [0, -40]
+            });
+
+            // Add markers to the map
+            locations.forEach(loc => {
+                const marker = L.marker(loc.coords, { icon: goldIcon }).addTo(map);
+                marker.bindPopup(`
+                    <div class="p-1">
+                        <h6 class="fw-bold mb-1">${loc.name}</h6>
+                        <p class="small mb-1 text-muted"><i class="fas fa-map-marker-alt me-1"></i> ${loc.address}</p>
+                        <p class="small mb-0 text-muted"><i class="fas fa-phone me-1"></i> ${loc.phone}</p>
+                    </div>
+                `);
+            });
+
+            // Adjust map view to fit all markers
+            const group = new L.featureGroup(locations.map(loc => L.marker(loc.coords)));
+            map.fitBounds(group.getBounds().pad(0.1));
+        });
+    </script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
