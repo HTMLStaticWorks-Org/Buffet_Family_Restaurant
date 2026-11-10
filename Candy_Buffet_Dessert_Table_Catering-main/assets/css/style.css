@@ -54,7 +54,7 @@
     --shadow-hover: 0 15px 40px rgba(240, 98, 146, 0.4);
 }
 
-[data-theme="dark"] a:hover,
+[data-theme="dark"] a:hover:not(.btn-luxury):not(.btn-luxury-outline):not(.btn-light):not(.btn-social):not(.cta-btn),
 [data-theme="dark"] .text-primary-orange:hover,
 [data-theme="dark"] .text-primary-color:hover {
     color: #FCE4EC !important;
@@ -118,9 +118,40 @@
     margin-left: 0 !important;
 }
 
+/* RTL Spacing Overrides to prevent bullet point and text overlapping */
+[dir="rtl"] .me-1 {
+    margin-left: 0.25rem !important;
+    margin-right: 0 !important;
+}
+
 [dir="rtl"] .me-2 {
     margin-left: 0.5rem !important;
     margin-right: 0 !important;
+}
+
+[dir="rtl"] .me-3 {
+    margin-left: 1rem !important;
+    margin-right: 0 !important;
+}
+
+[dir="rtl"] .me-4 {
+    margin-left: 1.5rem !important;
+    margin-right: 0 !important;
+}
+
+[dir="rtl"] .ms-1 {
+    margin-right: 0.25rem !important;
+    margin-left: 0 !important;
+}
+
+[dir="rtl"] .ms-2 {
+    margin-right: 0.5rem !important;
+    margin-left: 0 !important;
+}
+
+[dir="rtl"] .ms-3 {
+    margin-right: 1rem !important;
+    margin-left: 0 !important;
 }
 
 [dir="rtl"] .ms-lg-3 {
@@ -128,9 +159,71 @@
     margin-left: 0 !important;
 }
 
+/* RTL Bullet Points Alignment */
+[dir="rtl"] ul:not(.list-unstyled),
+[dir="rtl"] ol:not(.list-unstyled) {
+    padding-right: 2rem !important;
+    padding-left: 0 !important;
+    margin-right: 0;
+}
+
+[dir="rtl"] .list-unstyled {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* RTL Navbar and Tab Alignment */
+[dir="rtl"] .navbar-nav {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+[dir="rtl"] .navbar-nav .nav-link {
+    text-align: right;
+}
+
+[dir="rtl"] .toggle-group {
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+/* RTL Footer Alignment */
+[dir="rtl"] footer,
+[dir="rtl"] .index-footer-dark {
+    text-align: right;
+}
+
+[dir="rtl"] footer h5,
+[dir="rtl"] .index-footer-dark h5 {
+    text-align: right !important;
+}
+
 [dir="rtl"] footer h5::after {
-    left: auto;
-    right: 0;
+    left: auto !important;
+    right: 0 !important;
+}
+
+[dir="rtl"] footer .list-unstyled a:hover {
+    padding-left: 0 !important;
+    padding-right: 5px !important;
+}
+
+[dir="rtl"] footer p,
+[dir="rtl"] .index-footer-dark p {
+    text-align: right !important;
+}
+
+/* RTL Form Controls & Dropdown Positioning */
+[dir="rtl"] .form-select {
+    background-position: left 0.75rem center !important;
+    padding-left: 2.25rem !important;
+    padding-right: 0.75rem !important;
+    text-align: right;
+}
+
+[dir="rtl"] .accordion-button::after {
+    margin-left: 0 !important;
+    margin-right: auto !important;
 }
 
 [dir="rtl"] .whatsapp-float {
@@ -182,6 +275,18 @@
 [data-theme="dark"] .form-control:focus,
 [data-theme="dark"] .form-select:focus {
     background-color: #333333;
+}
+
+[data-theme="dark"] .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255%2C255%2C255%2C0.75%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+}
+
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.7;
 }
 
 .form-check-label {
@@ -348,6 +453,11 @@ section {
     border-color: var(--primary-color);
 }
 
+.navbar .btn-luxury {
+    padding: 6px 18px;
+    font-size: 0.85rem;
+}
+
 [data-theme="dark"] .btn-luxury {
     background-color: #C2185B;
     border-color: #F06292;
@@ -383,6 +493,21 @@ section {
 
 [data-theme="dark"] .btn-luxury-outline:hover {
     color: #FFFFFF;
+}
+
+[data-theme="dark"] .btn-luxury-outline {
+    color: var(--gold) !important;
+    border-color: var(--gold);
+}
+
+[data-theme="dark"] .filter-btn {
+    color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .filter-btn:hover,
+[data-theme="dark"] .filter-btn.active {
+    background-color: var(--primary-color) !important;
+    color: #FFFFFF !important;
 }
 
 [data-theme="dark"] .navbar-toggler-icon {
@@ -515,7 +640,7 @@ body {
 }
 
 .navbar-brand img {
-    max-height: 55px;
+    max-height: 70px;
     /* Consistent height */
     width: auto;
     transition: var(--transition);
@@ -530,7 +655,7 @@ body {
     height: calc(100vh - 80px);
     display: flex;
     align-items: center;
-    background: linear-gradient(rgba(255, 240, 220, 0.4), rgba(255, 165, 0, 0.4)), url('../images/hero.jpg');
+    background: linear-gradient(rgba(255, 240, 220, 0.4), rgba(255, 165, 0, 0.4)), url('../images/luxury-dessert-table.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -545,12 +670,12 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin-bottom: 30px;
     color: var(--text-dark);
     font-weight: 500;
@@ -633,6 +758,12 @@ body {
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-2 .display-1 {
+        font-size: 3.5rem !important;
     }
 }
 
@@ -749,6 +880,17 @@ body {
 
 [data-theme="dark"] .home-2-page .process-card:hover {
     background-color: var(--card-bg) !important;
+}
+
+[data-theme="dark"] .home-2-page .process-card span.display-1 {
+    color: var(--primary-color) !important;
+    opacity: 0.3 !important;
+    -webkit-text-fill-color: var(--primary-color) !important;
+}
+
+.step-number {
+    color: #FFFFFF !important;
+    background-color: var(--primary-color) !important;
 }
 
 /* Ensure text clarity in any mode */
@@ -1225,9 +1367,13 @@ body.auth-page {
 
 /* Compact & Elegant Footer */
 footer {
-    background-color: var(--soft-orange);
+    background-color: #FFF0F5;
     padding: 60px 0 30px;
     font-size: 0.95rem;
+}
+
+[data-theme="dark"] footer:not(.index-footer-dark) {
+    background-color: var(--soft-orange);
 }
 
 .footer-logo {

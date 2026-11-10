@@ -1,0 +1,15 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# Node
+node_modules/
+
+# Temp / build
+*.log
+*.tmp
+replace_footer.py
