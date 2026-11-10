@@ -1485,3 +1485,107 @@ footer .list-unstyled a:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+
+/* Fix #12: Non-Home Page Consistent Header Background */
+.page-header {
+    background-color: var(--primary-color) !important;
+}
+
+/* Fix #19: In 1024px arrange sections one by one in Home 2 page */
+@media (max-width: 1024px) {
+    .home-2-page .why-choose-us .col-lg-5,
+    .home-2-page .why-choose-us .col-lg-7,
+    .home-2-page .meet-stylist .col-lg-6,
+    .home-2-page .most-loved-themes .col-lg-6 {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+}
+
+/* Fix #20: In 768px and 1024px bullet points arrange properly in service page */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .service-row .list-unstyled li,
+    .service-item .list-unstyled li,
+    .luxury-card .list-unstyled li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        text-align: left;
+    }
+}
+
+/* Fix #21: In 768px and 1024px CTA text aligned properly in packages page */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .cta-section .container,
+    .booking-cta-final .container,
+    .packages-cta .container,
+    section.py-5.bg-light .container.text-center {
+        text-align: center !important;
+    }
+}
+
+/* Fix #6 & #11: RTL Mode Tab Alignment and Dropdown Positioning */
+[dir="rtl"] .nav-pills .nav-link,
+[dir="rtl"] .nav-tabs .nav-link,
+[dir="rtl"] .filter-btn {
+    text-align: right;
+}
+
+[dir="rtl"] .nav-pills,
+[dir="rtl"] .nav-tabs {
+    justify-content: flex-start;
+    padding-right: 0;
+}
+
+[dir="rtl"] .list-unstyled li {
+    text-align: right;
+}
+
+/* Fix #22: Mobile Floating Theme and RTL Buttons */
+.mobile-toggles {
+    position: fixed;
+    bottom: 110px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1050;
+}
+
+.theme-toggle-mobile,
+.rtl-toggle-mobile {
+    background-color: var(--card-bg);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.theme-toggle-mobile:hover,
+.rtl-toggle-mobile:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .mobile-toggles .fa-moon {
+    display: none;
+}
+
+[data-theme="light"] .mobile-toggles .fa-sun {
+    display: none;
+}
+
+[dir="rtl"] .mobile-toggles {
+    right: auto;
+    left: 15px;
+}

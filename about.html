@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -60,10 +60,10 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header" style="background-color: var(--soft-accent, var(--soft-orange)); margin-top: 0;">
+    <section class="page-header" style="background-color: var(--primary-color); margin-top: 0;">
         <div class="container text-center py-5">
-            <h1 class="display-3">Our Sweet Story</h1>
-            <p class="lead">Creating unforgettable memories, one treat at a time.</p>
+            <h1 class="display-3 text-white">Our Sweet Story</h1>
+            <p class="lead text-white">Creating unforgettable memories, one treat at a time.</p>
         </div>
     </section>
 
@@ -246,6 +246,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Floating Theme & RTL Toggles (Fixed) -->
+    <div class="mobile-toggles d-xl-none">
+        <button class="theme-toggle-mobile" onclick="document.getElementById('theme-toggle').click()" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+        <button class="rtl-toggle-mobile" onclick="document.getElementById('rtl-toggle').click()" title="Toggle RTL">
+            <span>RTL</span>
+        </button>
+    </div>
 
     <!-- Floating Buttons -->
     <button class="back-to-top" id="backToTop" title="Back to Top">

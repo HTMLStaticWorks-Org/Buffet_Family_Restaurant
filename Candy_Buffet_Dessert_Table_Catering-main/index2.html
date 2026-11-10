@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -65,7 +65,7 @@
 
     <!-- Hero Section 2 (Modern Luxury) -->
     <header class="hero-2 d-flex align-items-center"
-        style="min-height: calc(100vh - 80px); background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('assets/images/hero_candy.png'); background-size: cover; background-attachment: fixed;">
+        style="min-height: calc(100vh - 80px); background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('assets/images/donuts-table.jpg'); background-size: cover; background-attachment: fixed;">
         <div class="container py-4">
             <div class="row align-items-center g-4">
                 <div class="col-lg-6">
@@ -256,9 +256,13 @@
                         stylist oversees every detail of your event's dessert display, ensuring it's not just a table,
                         but a masterpiece.</p>
                     <div class="mt-4">
-                        <h5 class="mb-1">Jane Doe</h5>
-                        <p class="text-primary-orange">Founder & Creative Director</p>
-                        <img src="assets/images/logo.svg" alt="Signature" style="max-height: 40px; opacity: 0.5;">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="assets/images/stylist.png" alt="Jane Doe" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-color);">
+                            <div>
+                                <h5 class="mb-0">Jane Doe</h5>
+                                <p class="text-primary-orange mb-0">Founder & Creative Director</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,21 +273,26 @@
     <section class="social-proof py-5 bg-white border-top border-bottom">
         <div class="container text-center">
             <p class="text-uppercase small fw-bold text-muted mb-4 ls-2">As Featured In & Trusted By</p>
-            <div class="row g-4 align-items-center justify-content-center opacity-50">
-                <div class="col-4 col-md-2">
-                    <h5>VOGUE</h5>
+            <div class="row g-4 align-items-center justify-content-center">
+                <div class="col-4 col-md-2 text-center">
+                    <i class="fas fa-star text-primary-orange mb-2 d-block fa-lg"></i>
+                    <h5 class="mb-0">VOGUE</h5>
                 </div>
-                <div class="col-4 col-md-2">
-                    <h5>BRIDES</h5>
+                <div class="col-4 col-md-2 text-center">
+                    <i class="fas fa-heart text-primary-orange mb-2 d-block fa-lg"></i>
+                    <h5 class="mb-0">BRIDES</h5>
                 </div>
-                <div class="col-4 col-md-2">
-                    <h5>HARPER'S</h5>
+                <div class="col-4 col-md-2 text-center">
+                    <i class="fas fa-crown text-primary-orange mb-2 d-block fa-lg"></i>
+                    <h5 class="mb-0">HARPER'S</h5>
                 </div>
-                <div class="col-4 col-md-2">
-                    <h5>ELLE</h5>
+                <div class="col-4 col-md-2 text-center">
+                    <i class="fas fa-gem text-primary-orange mb-2 d-block fa-lg"></i>
+                    <h5 class="mb-0">ELLE</h5>
                 </div>
-                <div class="col-4 col-md-2">
-                    <h5>MARIE CLAIRE</h5>
+                <div class="col-4 col-md-2 text-center">
+                    <i class="fas fa-award text-primary-orange mb-2 d-block fa-lg"></i>
+                    <h5 class="mb-0">MARIE CLAIRE</h5>
                 </div>
             </div>
         </div>
@@ -299,7 +308,7 @@
             <div class="row g-0 shadow-sm rounded-4 overflow-hidden">
                 <div class="col-md-4">
                     <div class="process-card p-5 bg-light h-100 text-center border-end">
-                        <span class="display-1 text-soft-orange fw-bold opacity-25">01</span>
+                        <span class="display-1 text-primary-orange fw-bold opacity-75">01</span>
                         <h4 class="mt-n4">Creative Brief</h4>
                         <p class="text-muted small">We start with your mood board and color palette to understand your
                             vision.</p>
@@ -307,7 +316,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="process-card p-5 bg-light h-100 text-center border-end">
-                        <span class="display-1 text-soft-orange fw-bold opacity-25">02</span>
+                        <span class="display-1 text-primary-orange fw-bold opacity-75">02</span>
                         <h4 class="mt-n4">Custom Styling</h4>
                         <p class="text-muted small">Our team designs custom labels and selects props that match your
                             theme perfectly.</p>
@@ -315,7 +324,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="process-card p-5 bg-light h-100 text-center">
-                        <span class="display-1 text-soft-orange fw-bold opacity-25">03</span>
+                        <span class="display-1 text-primary-orange fw-bold opacity-75">03</span>
                         <h4 class="mt-n4">Flawless Execution</h4>
                         <p class="text-muted small">On-site styling and white-glove service ensure a stress-free
                             experience.</p>
@@ -513,6 +522,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Floating Theme & RTL Toggles (Fixed) -->
+    <div class="mobile-toggles d-xl-none">
+        <button class="theme-toggle-mobile" onclick="document.getElementById('theme-toggle').click()" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+        <button class="rtl-toggle-mobile" onclick="document.getElementById('rtl-toggle').click()" title="Toggle RTL">
+            <span>RTL</span>
+        </button>
+    </div>
 
     <!-- Floating Buttons -->
     <button class="back-to-top" id="backToTop" title="Back to Top">
