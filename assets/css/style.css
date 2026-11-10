@@ -640,8 +640,8 @@ body {
 }
 
 .navbar-brand img {
-    max-height: 70px;
-    /* Consistent height */
+    max-height: 48px;
+    /* Consistent elegant height */
     width: auto;
     transition: var(--transition);
 }
@@ -655,7 +655,7 @@ body {
     height: calc(100vh - 80px);
     display: flex;
     align-items: center;
-    background: linear-gradient(rgba(255, 240, 220, 0.4), rgba(255, 165, 0, 0.4)), url('../images/luxury-dessert-table.jpg');
+    background: linear-gradient(rgba(20, 10, 16, 0.72), rgba(20, 10, 16, 0.72)), url('../images/donuts-table.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -672,14 +672,19 @@ body {
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
+    color: #FFFFFF !important;
 }
 
 .hero-content p {
     font-size: 1.1rem;
-    margin-bottom: 30px;
-    color: var(--text-dark);
+    margin-bottom: 20px;
+    color: #FFFFFF !important;
     font-weight: 500;
     line-height: 1.8;
+}
+
+.hero-content .lead {
+    color: #FFFFFF !important;
 }
 
 .hero-img-main {
@@ -993,9 +998,10 @@ body.auth-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 90px 40px 40px;
     position: relative;
     z-index: 2;
+    min-height: 100vh;
 }
 
 .auth-card {
@@ -1008,6 +1014,7 @@ body.auth-page {
     border: 1px solid rgba(194, 24, 91, 0.1);
     position: relative;
     z-index: 10;
+    margin-top: 20px;
     animation: authFadeIn 0.8s ease-out;
 }
 
@@ -1113,14 +1120,14 @@ body.auth-page {
 }
 
 .auth-toggles {
-    position: fixed;
-    top: 25px;
-    right: 25px;
+    position: fixed !important;
+    top: 20px !important;
+    right: 25px !important;
     display: flex;
     gap: 10px;
-    z-index: 1100;
-    background: var(--card-bg);
-    padding: 10px;
+    z-index: 9999 !important;
+    background: var(--card-bg) !important;
+    padding: 8px 12px;
     border-radius: 30px;
     box-shadow: var(--shadow-soft);
     border: 1px solid rgba(194, 24, 91, 0.2);
@@ -1128,8 +1135,8 @@ body.auth-page {
 
 /* RTL Adjustment for Fixed Toggles */
 [dir="rtl"] .auth-toggles {
-    right: auto;
-    left: 25px;
+    right: auto !important;
+    left: 25px !important;
 }
 
 .social-separator {
@@ -1365,15 +1372,19 @@ body.auth-page {
     background-color: #880E4F;
 }
 
-/* Compact & Elegant Footer */
-footer {
-    background-color: #FFF0F5;
+/* Compact & Elegant Footer (Fix #5: Light theme footer color) */
+footer,
+.index-footer-dark {
+    background-color: #FFF0F5 !important;
+    color: var(--text-dark) !important;
     padding: 60px 0 30px;
     font-size: 0.95rem;
 }
 
-[data-theme="dark"] footer:not(.index-footer-dark) {
-    background-color: var(--soft-orange);
+[data-theme="dark"] footer,
+[data-theme="dark"] .index-footer-dark {
+    background-color: #1E0C15 !important;
+    color: #FFFFFF !important;
 }
 
 .footer-logo {
@@ -1382,8 +1393,8 @@ footer {
 }
 
 .footer-logo img {
-    max-height: 55px;
-    /* Consistent height */
+    max-height: 48px;
+    /* Consistent elegant height */
     width: auto;
     transition: var(--transition);
 }
@@ -1392,29 +1403,67 @@ footer {
     transform: scale(1.05);
 }
 
-footer h5 {
+footer h5,
+.index-footer-dark h5 {
     font-size: 1.1rem;
     margin-bottom: 20px;
     position: relative;
     padding-bottom: 10px;
+    color: var(--text-dark) !important;
 }
 
-.index-footer-dark {
-    background-color: #1E0C15 !important;
+[data-theme="dark"] footer h5,
+[data-theme="dark"] .index-footer-dark h5 {
     color: #FFFFFF !important;
 }
 
-.index-footer-dark p,
-.index-footer-dark .list-unstyled a {
+footer p,
+.index-footer-dark p {
+    color: var(--text-muted) !important;
+    margin-bottom: 10px;
+}
+
+[data-theme="dark"] footer p,
+[data-theme="dark"] .index-footer-dark p {
     color: #E0D5D9 !important;
 }
 
-.index-footer-dark h5 {
-    color: #FFFFFF !important;
+footer .list-unstyled li,
+.index-footer-dark .list-unstyled li {
+    margin-bottom: 8px;
 }
 
-.index-footer-dark .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+footer .list-unstyled a,
+.index-footer-dark .list-unstyled a {
+    color: var(--text-muted) !important;
+    transition: var(--transition);
+}
+
+[data-theme="dark"] footer .list-unstyled a,
+[data-theme="dark"] .index-footer-dark .list-unstyled a {
+    color: #E0D5D9 !important;
+}
+
+footer .list-unstyled a:hover,
+.index-footer-dark .list-unstyled a:hover {
+    color: var(--primary-color) !important;
+    padding-left: 5px;
+}
+
+[data-theme="dark"] footer .list-unstyled a:hover,
+[data-theme="dark"] .index-footer-dark .list-unstyled a:hover {
+    color: var(--primary-orange) !important;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(194, 24, 91, 0.2);
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+[data-theme="dark"] .footer-bottom,
+[data-theme="dark"] .index-footer-dark .footer-bottom {
+    border-top-color: rgba(255, 255, 255, 0.1);
 }
 
 footer h5::after {
@@ -1486,9 +1535,174 @@ footer .list-unstyled a:hover {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Fix #12: Non-Home Page Consistent Header Background */
+/* Fix #2: Soft Header Background Matching Other Pages */
 .page-header {
-    background-color: var(--primary-color) !important;
+    background-color: var(--soft-accent, var(--soft-orange)) !important;
+    color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .page-header {
+    background-color: #1F1F1F !important;
+    color: #FFFFFF !important;
+}
+
+.page-header h1 {
+    color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .page-header h1 {
+    color: #FFFFFF !important;
+}
+
+.page-header p.lead {
+    color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .page-header p.lead {
+    color: #D8CCD0 !important;
+}
+
+/* Fix #7, #10, #12, #13, #14: Yellow/Gold CTA & Tab Buttons High Contrast in Dark Theme */
+[data-theme="dark"] .btn-luxury-outline {
+    background-color: var(--gold) !important;
+    border-color: var(--gold) !important;
+    color: #121212 !important;
+    font-weight: 600 !important;
+}
+
+[data-theme="dark"] .btn-luxury-outline:hover {
+    background-color: var(--gold-hover, #C5A028) !important;
+    border-color: var(--gold-hover, #C5A028) !important;
+    color: #000000 !important;
+}
+
+[data-theme="dark"] .cta-btn,
+[data-theme="dark"] .cta-btn:hover,
+[data-theme="dark"] .cta-section .btn-light,
+[data-theme="dark"] .booking-cta-final .btn-light {
+    background-color: var(--gold) !important;
+    color: #121212 !important;
+    border-color: var(--gold) !important;
+    font-weight: 700 !important;
+}
+
+[data-theme="dark"] .filter-btn {
+    background-color: #2D2D2D !important;
+    color: #FFFFFF !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .filter-btn.active,
+[data-theme="dark"] .filter-btn:hover {
+    background-color: var(--gold) !important;
+    color: #121212 !important;
+    border-color: var(--gold) !important;
+    font-weight: 600 !important;
+}
+
+[data-theme="dark"] .package-card .btn-luxury-outline,
+[data-theme="dark"] .luxury-card .btn-luxury-outline,
+[data-theme="dark"] .packages-preview .btn-luxury-outline,
+[data-theme="dark"] .most-loved-themes .btn-luxury-outline,
+[data-theme="dark"] .featured-gallery .btn-luxury-outline,
+[data-theme="dark"] .themes .btn-luxury-outline {
+    background-color: var(--gold) !important;
+    color: #121212 !important;
+    border-color: var(--gold) !important;
+    font-weight: 600 !important;
+}
+
+[data-theme="dark"] .package-card .btn-luxury-outline:hover,
+[data-theme="dark"] .luxury-card .btn-luxury-outline:hover,
+[data-theme="dark"] .packages-preview .btn-luxury-outline:hover,
+[data-theme="dark"] .most-loved-themes .btn-luxury-outline:hover,
+[data-theme="dark"] .featured-gallery .btn-luxury-outline:hover,
+[data-theme="dark"] .themes .btn-luxury-outline:hover {
+    background-color: var(--gold-hover, #C5A028) !important;
+    color: #000000 !important;
+}
+
+/* Fix #11: Dark Theme Dropdown / Accordion Arrow Icon Visibility */
+[data-theme="dark"] .accordion-button::after {
+    filter: invert(1) brightness(2) !important;
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed)::after {
+    filter: invert(1) brightness(2) !important;
+}
+
+/* Fix #9: Home 2 Process Numbers Visibility & No Overlap in Light and Dark Themes */
+.process-card .display-1,
+.home-2-page .process-card span.display-1 {
+    display: inline-block !important;
+    color: var(--primary-color) !important;
+    opacity: 1 !important;
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 15px !important;
+    line-height: 1 !important;
+    -webkit-text-fill-color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .process-card .display-1,
+[data-theme="dark"] .home-2-page .process-card span.display-1 {
+    color: var(--primary-orange) !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: var(--primary-orange) !important;
+}
+
+.process-card h4 {
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+}
+
+/* Fix #16 & #18: Authentication Page Toggles Outside Card & Fixed on Mobile */
+.auth-toggles {
+    position: fixed !important;
+    top: 25px !important;
+    right: 25px !important;
+    z-index: 9999 !important;
+    background: var(--card-bg) !important;
+    padding: 8px 14px !important;
+    border-radius: 30px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.auth-form-side {
+    padding-top: 90px !important;
+}
+
+.auth-card {
+    margin-top: 15px !important;
+}
+
+@media (max-width: 576px) {
+    .auth-toggles {
+        top: 15px !important;
+        right: 15px !important;
+        padding: 6px 12px !important;
+    }
+    .auth-form-side {
+        padding-top: 85px !important;
+    }
+    .mobile-toggles {
+        bottom: 20px !important;
+        right: 20px !important;
+        z-index: 9999 !important;
+    }
+}
+
+/* Fix #17: 1024px Package Add-ons Grid Alignment */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .complementary-services .row.g-4 > [class*="col-"] {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+    .complementary-services .luxury-card {
+        padding: 30px 20px !important;
+        text-align: center !important;
+        height: 100% !important;
+    }
 }
 
 /* Fix #19: In 1024px arrange sections one by one in Home 2 page */

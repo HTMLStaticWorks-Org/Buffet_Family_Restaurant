@@ -97,7 +97,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
+                <ul class="navbar-nav mx-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="index2.html">Home 2</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
@@ -105,30 +105,28 @@
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link active" href="packages.html">Packages</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Book-US</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="login.html" class="btn-luxury">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="toggle-group">
-                            <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
-                                <i class="fas fa-moon"></i>
-                                <i class="fas fa-sun"></i>
-                            </button>
-                            <button id="rtl-toggle" class="rtl-toggle" title="Toggle RTL">
-                                <span>RTL</span>
-                            </button>
-                        </div>
-                    </li>
                 </ul>
+                <div class="d-flex align-items-center gap-3 mt-3 mt-xl-0 justify-content-center">
+                    <div class="toggle-group m-0">
+                        <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                        </button>
+                        <button id="rtl-toggle" class="rtl-toggle" title="Toggle RTL">
+                            <span>RTL</span>
+                        </button>
+                    </div>
+                    <a href="login.html" class="btn-luxury">Login</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header" style="background-color: var(--primary-color); margin-top: 0;">
-        <div class="container text-center py-5 text-white">
-            <h1 class="display-3 text-white">Party Packages</h1>
-            <p class="lead text-white">Curated collections to fit every celebration size and budget.</p>
+    <!-- Page Header (Fix #2: Same background like other pages) -->
+    <section class="page-header" style="background-color: var(--soft-accent, var(--soft-orange)); margin-top: 0;">
+        <div class="container text-center py-5">
+            <h1 class="display-3">Party Packages</h1>
+            <p class="lead">Curated collections to fit every celebration size and budget.</p>
         </div>
     </section>
 
@@ -236,7 +234,7 @@
                 <p class="lead">Enhance your package with these sweet extras.</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-3">
+                <div class="col-md-6 col-lg-3">
                     <div class="luxury-card p-4 text-center h-100">
                         <i class="fas fa-camera fa-2x text-primary-orange mb-3"></i>
                         <h5>Photo Booth</h5>
@@ -244,7 +242,7 @@
                         <p class="text-primary-orange fw-bold">From $200</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6 col-lg-3">
                     <div class="luxury-card p-4 text-center h-100">
                         <i class="fas fa-utensils fa-2x text-primary-orange mb-3"></i>
                         <h5>Personalized Sweets</h5>
@@ -252,7 +250,7 @@
                         <p class="text-primary-orange fw-bold">From $150</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6 col-lg-3">
                     <div class="luxury-card p-4 text-center h-100">
                         <i class="fas fa-wine-glass-alt fa-2x text-primary-orange mb-3"></i>
                         <h5>Drink Station</h5>
@@ -260,7 +258,7 @@
                         <p class="text-primary-orange fw-bold">From $250</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6 col-lg-3">
                     <div class="luxury-card p-4 text-center h-100">
                         <i class="fas fa-clock fa-2x text-primary-orange mb-3"></i>
                         <h5>Extended Rental</h5>
