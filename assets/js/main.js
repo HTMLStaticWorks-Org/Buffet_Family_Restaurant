@@ -1,0 +1,153 @@
+/* 
+   VelvetBite - Main JavaScript
+   Functionality: Sticky Navbar, Smooth Scrolling, Lazy Loading, Animations
+*/
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Theme & RTL Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const html = document.documentElement;
+
+    // Load saved settings
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    const currentDir = localStorage.getItem('dir') || 'ltr';
+
+    html.setAttribute('data-theme', currentTheme);
+    html.setAttribute('dir', currentDir);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const newTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
+
+    if (rtlToggle) {
+        rtlToggle.addEventListener('click', () => {
+            const newDir = html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr';
+            html.setAttribute('dir', newDir);
+            localStorage.setItem('dir', newDir);
+        });
+    }
+
+    // 1. Sticky Navbar on Scroll
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // 2. Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // 3. Simple Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.85;
+        revealElements.forEach(el => {
+            const elTop = el.getBoundingClientRect().top;
+            if (elTop < triggerBottom) {
+                el.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Initial check
+
+    // 4. WhatsApp & Back to Top Handler
+    const whatsappBtn = document.querySelector('.whatsapp-float');
+    const backToTopBtn = document.querySelector('.back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (backToTopBtn) {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }
+    });
+
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', (e) => {
+            // e.preventDefault();
+            // console.log("WhatsApp button clicked");
+            // window.open('https://wa.me/YOUR_PHONE_NUMBER', '_blank');
+        });
+    }
+
+    // 5. Gallery Filter Logic (if present)
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.style.opacity = '1', 10);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+    }
+
+    // 6. Password Visibility Toggle
+    const togglePasswordButtons = document.querySelectorAll('.password-toggle');
+    togglePasswordButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const input = this.parentElement.querySelector('input');
+            const icon = this.querySelector('i');
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    });
+});
